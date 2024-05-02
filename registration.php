@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b9aa334442.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
     <title>Registrace</title>
 </head>
 <body>
@@ -15,37 +14,7 @@
             var_dump($_POST);
             $chyby = "";
 
-            if (isset($_POST["login"])) {
-                if (strlen($_POST["username"]) < 5) {
-                    $errors .= "Username should be longer than 5 characters! \n";
-                }
-
-                if (strlen($_POST["password"]) < 8) {
-                    $errors .= "Password should be longer than 8 characters! \n";
-                }
-
-                if (empty($errors)) {
-                    require_once "db.php";
-                    $username = $_POST["username"];
-                    $sql = "SELECT * FROM uzivatele WHERE prezdivka = '$username';";
-                    $result = $con->query($sql);
-                    if ($result->num_rows == 1) {
-                        print_r($result);
-                        $user = $result->fetch_object();
-                        $password = $_POST["password"];
-                        $hashedPassword = $user->heslo;
-                        
-                        if (password_verify($password, $hashedPassword)) {
-                            $_SESSION["isLogged"] = true;
-                            $_SESSION["username"] = $_POST["username"];
-                            header("location: profile.php");
-                            die();
-                        } else {
-                            echo "Špatné heslo!!!";
-                        }
-                    }
-                }
-            }
+            
 
             if (isset($_POST["registrace"])){
                 if (strlen($_POST["prezdivka"]) < 5) {
