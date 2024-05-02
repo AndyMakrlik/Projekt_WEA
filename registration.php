@@ -8,6 +8,70 @@
     <title>Registrace</title>
 </head>
 <body>
+    <?php
+            session_start();
+
+            var_dump($_SESSION);
+            var_dump($_POST);
+            $chyby = "";
+
+            if (isset($_POST["login"])) {
+                if (strlen($_POST["username"]) < 5) {
+                    $errors .= "Username should be longer than 5 characters! \n";
+                }
+
+                if (strlen($_POST["password"]) < 8) {
+                    $errors .= "Password should be longer than 8 characters! \n";
+                }
+
+                if (empty($errors)) {
+                    require_once "db.php";
+                    $username = $_POST["username"];
+                    $sql = "SELECT * FROM uzivatele WHERE prezdivka = '$username';";
+                    $result = $con->query($sql);
+                    if ($result->num_rows == 1) {
+                        print_r($result);
+                        $user = $result->fetch_object();
+                        $password = $_POST["password"];
+                        $hashedPassword = $user->heslo;
+                        
+                        if (password_verify($password, $hashedPassword)) {
+                            $_SESSION["isLogged"] = true;
+                            $_SESSION["username"] = $_POST["username"];
+                            header("location: profile.php");
+                            die();
+                        } else {
+                            echo "Špatné heslo!!!";
+                        }
+                    }
+                }
+            }
+
+            if (isset($_POST["registrace"])){
+                if (strlen($_POST["prezdivka"]) < 5) {
+                    $chyby .= "Přezdívka by měla mít aspoň 5 znaků! \n";
+                }
+                if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                    $chyby .= "Email zapište ve správném formátu! \n";
+                }
+                if (strlen($_POST["heslo"]) < 8) {
+                    $chyby .= "Heslo by mělo být delší než 8 znaků! \n";
+                }
+
+                if (empty($chyby)) {
+                    require_once "db.php";
+                    $prezdivka = $_POST["prezdivka"];
+                    $email = $_POST["email"];
+                    $heslo = $_POST["heslo"];
+
+                    $sifrovaneHeslo = password_hash($heslo, PASSWORD_BCRYPT);
+                    $sql = "INSERT INTO autobazar(prezdivka, email, heslo) VALUES('$prezdivka', '$email', '$sifrovaneHeslo')";
+                    $con->query($sql);
+                }
+            }
+            echo $chyby;
+        ?>
+
     <div class="div">
         <div class="formular">
             <h1>Registrace</h1>
@@ -15,15 +79,18 @@
                 <div class="vstupy">
                     <div class="vstupniPole">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Přezdívka">
+                        <input type="text" placeholder="Přezdívka" name="prezdivka">
                     </div>
                     <div class="vstupniPole">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="email">
                     </div>
                     <div class="vstupniPole">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Heslo">
+                        <input type="password" placeholder="Heslo" name="heslo">
+                    </div>
+                    <div>
+                        <input type="submit" value="Registrovat" name="registrace">
                     </div>
                 </div>
             </form>

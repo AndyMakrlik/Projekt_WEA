@@ -13,10 +13,10 @@
     </div>
 
 <div class="main">
-    <form action="login.php"method="post">
+    <form action="login.php" method="post">
         <button type="submit">Přihlaš se</button>
     </form>
-        <form action="registration.php"method="post">
+        <form action="registration.php" method="post">
         <button type="submit">Registruj se</button>
     </form>
 </div>
