@@ -8,6 +8,10 @@
     <title>Inzeráty</title>
 </head>
 <body>
+    <?php
+        
+    ?>
+
     <div class="nadpis">
         <H1>Vítáme tě na aukčním webu AutoBuznoš</H1>
     </div>
