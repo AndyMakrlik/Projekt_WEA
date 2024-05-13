@@ -1,0 +1,137 @@
+*{
+    text-decoration: none;
+}
+
+.navBar {
+    background-color: darkgray;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+
+
+li a {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 25px;
+    text-decoration: none;
+}
+
+li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-out;
+    transform-origin: left;
+}
+
+li a:hover::before {
+    width: 100%;
+}
+
+.navBut {
+    background-color: gray;
+    margin-left: 10px;
+    border-radius: 100px;
+    padding: 10px;
+    width: 140px;
+    height: 50px;
+    border: none;
+    transition: 0.8s;
+}
+
+button a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navBut:hover a{
+    color: gray;
+}
+
+.navBut:hover{
+    background-color: whitesmoke;
+}
+
+.addBut {
+    background-color: gray;
+    border-radius: 100px;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    transition: 0.8s;
+}
+
+.addBut:hover a{
+    color: gray;
+}
+
+.addBut:hover{
+    background-color: whitesmoke;
+}
+
+.profileBut {
+    background-color: gray;
+    border-radius: 100px;
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    transition: 0.8s;
+}
+
+.profileBut:hover a{
+    color: gray;
+}
+
+.profileBut:hover{
+    background-color: whitesmoke;
+}
+
+.divLogo, .divBut {
+    display: inline-block;
+}
+
+#inzeraty {
+    display: flex;
+    justify-content: center;
+}
+
+.inzerat {
+    width: 750px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.inzerat h2 {
+    margin-bottom: 10px;
+}
+
+.inzerat img {
+    max-width: 100%;
+}
