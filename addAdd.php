@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styleIndex.css">
+    <link rel="stylesheet" href="styleIndexInzerat.css">
     <title>Přidání inzerátu</title>
 </head>
 <body>
     <?php
         session_start();
-        //var_dump($_SESSION);
-        if (!$_SESSION["jePrihlasen"]) { //neChybí !
+        var_dump($_SESSION);
+        if ($_SESSION["jePrihlasen"]) {
             header("location: index.php");
             die();
         }

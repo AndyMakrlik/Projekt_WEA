@@ -1,0 +1,44 @@
+body {
+    margin: 20px;
+}
+
+form {
+    background-color: #a5a5a5;
+    max-width: 350px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 5 6px 8px rgba(163, 182, 90, 0.1);
+    border-radius: 10px;
+    border-top-color: magenta       ;
+    border-right-color: yellow;
+    border-left-color: red;
+    border-bottom-color: aqua;
+    
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    color: pink;
+    background-color: #ccc;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+}
+button {
+    margin-top: 20px;
+    background-color: #545554;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+}
+
+button:hover {
+    background-color: #cacaca;
+}

@@ -66,6 +66,7 @@
             <h1 id="nazev">Vítáme tě na aukčním webu AutoBuznoš</h1>
         </div>
     </div> 
+    
     <?php
         require_once "db.php";
         if ($con->connect_error) {
