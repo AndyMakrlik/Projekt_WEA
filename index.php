@@ -92,7 +92,8 @@
                         <p><strong>Najeto:</strong> ' . formatCisla($inzerat["najezd"]) . ' Km</p>
                         <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>';
                         if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
-                            echo '<button class="navBut"><a href="delete.php?id=' . $inzerat["id"] . '">Smazat</a></button>';
+                            echo '<button class="odstranit"><a href="delete.php?id=' . $inzerat["id"] . '">❌</a></button>';
+                            echo '<button class="upravit"><a href="upravit.php?id=' . $inzerat["id"] . '"></a></button>';
                         }
                         echo '</div>';
             }
