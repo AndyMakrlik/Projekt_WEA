@@ -2,6 +2,11 @@
     text-decoration: none;
 }
 
+.auto {
+    max-height: 200px;
+    min-height: 200px;
+}
+
 .navBar {
     background-color: darkgray;
     padding-left: 15px;
@@ -114,6 +119,8 @@ button a {
 #inzeraty {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inzerat {

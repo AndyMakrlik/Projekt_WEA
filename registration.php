@@ -12,7 +12,7 @@
     <nav class="navBar">
         <div class="navDiv">
             <div class="">
-                <div class="divLogo"><img src="img\logo.png" alt="Logo" style="height: 100px;"></div>
+                <div class="divLogo"><a href="index.php"><img src="img\logo.png" alt="Logo" style="height: 100px;"></a></div>
                 <div class="divBut">
                     <?php
                         if (isset($_SESSION["jePrihlasen"])) {
@@ -83,6 +83,7 @@
                     $sifrovaneHeslo = password_hash($heslo, PASSWORD_BCRYPT);
                     $sql = "INSERT INTO autobazar(prezdivka, email, heslo) VALUES('$prezdivka', '$email', '$sifrovaneHeslo')";
                     $con->query($sql);
+                    $con->close();
                 }
             }
             echo $chyby;
