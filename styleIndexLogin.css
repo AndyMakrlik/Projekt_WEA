@@ -1,0 +1,52 @@
+.formular {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 #2c2c2c;
+    width: 300px;
+    margin: auto;
+}
+
+div {
+    margin-top: 20px;
+
+}
+.formular h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.vstupniPole {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.vstupniPole i {
+    margin-right: 10px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #4b4b4b;
+}
