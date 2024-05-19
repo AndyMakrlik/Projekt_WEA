@@ -5,7 +5,9 @@
         </div>
         <?php if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true): ?>
             <div class="divBut">
-                <button class="addBut"><a href="add.php">Přidat Inzerát</a></button>
+                <form action="add.php">
+                    <button class="addBut">Přidat inzerát</button>
+                </form>  
             </div>
         <?php endif; ?>
         <ul>
@@ -14,13 +16,15 @@
             <li><a href="contact.php">Kontakt</a></li>
         </ul>
         <?php if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true): ?>
-            <div id = navButs>
-                <button class="profileBut"><a href="profile.php">Profil</a></button>
+            <div>
+                <form action="profile.php">
+                    <button class="profileBut">Profil</button>
+                </form>  
             </div>
         <?php else: ?>
-            <div id = navButs>
-                <button class="navBut"><a href="login.php">Přihlásit</a></button>
-                <button class="navBut"><a href="registration.php">Registrovat</a></button>
+            <div>
+                <form action="login.php" class="formBut"><button class="navBut">Přihlásit</button></form>
+                <form action="registration.php" class="formBut"><button class="navBut">Registrovat</button></form>
             </div>
         <?php endif; ?>
     </div>

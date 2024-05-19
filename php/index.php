@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Inzeráty</title>
-    <style>
-        
-    </style>
+    <title>Autobazar</title>
 </head>
 <body>
     <?php
@@ -59,6 +56,7 @@
         } else {
             echo 'Nejsou tu žádne inzeráty!';
         }
+        
         $con->close();
 
         function formatCisla($cislo) {

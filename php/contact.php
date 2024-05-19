@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../contact.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Document</title>
+    <title>Kontakt</title>
 </head>
 <body>
     <?php

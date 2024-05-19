@@ -10,7 +10,7 @@
     min-height: 200px;
 }
 
-.navButs{
+.formBut{
     display: inline-block;
 }
 
@@ -73,20 +73,15 @@ li a:hover::before {
     height: 50px;
     border: none;
     transition: 0.8s;
-}
-
-button a {
     color: white;
     font-weight: bold;
     font-size: 18px;
 }
 
-.navBut:hover a{
-    color: gray;
-}
-
 .navBut:hover{
     background-color: whitesmoke;
+    color: gray;
+    cursor: pointer;
 }
 
 .addBut {
@@ -97,14 +92,15 @@ button a {
     height: 50px;
     border: none;
     transition: 0.8s;
-}
-
-.addBut:hover a{
-    color: gray;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .addBut:hover{
     background-color: whitesmoke;
+    color: gray;
+    cursor: pointer;
 }
 
 .profileBut {
@@ -115,14 +111,15 @@ button a {
     height: 50px;
     border: none;
     transition: 0.8s;
-}
-
-.profileBut:hover a{
-    color: gray;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .profileBut:hover{
     background-color: whitesmoke;
+    color: gray;
+    cursor: pointer;
 }
 
 .divLogo, .divBut {

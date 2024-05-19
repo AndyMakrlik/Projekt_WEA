@@ -52,24 +52,24 @@
     ?>
 
     <div class="div">
-            <div class="formular">
-                <h1>Přihlášení</h1>
-                <form action="login.php" method="post">
-                    <div class="vstupy">
-                        <div class="vstupniPole">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Přezdívka" name="prezdivka">
-                        </div>
-                        <div class="vstupniPole">
-                            <i class="fa-solid fa-key"></i>
-                            <input type="password" placeholder="Heslo" name="heslo">
-                        </div>
-                        <div>
-                            <input type="submit" value="Příhlasit" name="prihlaseni">
-                        </div>
+        <div class="formular">
+            <h1>Přihlášení</h1>
+            <form action="login.php" method="post">
+                <div class="vstupy">
+                    <div class="vstupniPole">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Přezdívka" name="prezdivka">
                     </div>
-                </form>
-            </div>
+                    <div class="vstupniPole">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" placeholder="Heslo" name="heslo">
+                    </div>
+                    <div>
+                        <input type="submit" value="Příhlasit" name="prihlaseni">
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 </body>
 </html>
