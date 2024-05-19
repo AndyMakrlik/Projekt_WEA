@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!$_SESSION["jePrihlasen"]) {
+    if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == false) {
         header("location: index.php");
         die();
     }

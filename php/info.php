@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleInfo.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/info.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Document</title>
 </head>
@@ -15,15 +16,15 @@
     ?>
 
     <div class="about-section">
-    <h1>O Nás</h1>
-    <p>Jsme poctivý autobazar a prodáváme kvalitní nová i ojetá auta již od roku 1990.</p>
+        <h1>O Nás</h1>
+        <p>Jsme poctivý autobazar a prodáváme kvalitní nová i ojetá auta již od roku 1990.</p>
     </div>
 
     <h2 style="text-align:center">Náš Tým</h2>
     <div class="row">
     <div class="column">
         <div class="card">
-        <img src="img\andy.png" alt="Andy" style="width:100%">
+        <img src="../img/andy.png" alt="Andy" style="width:100%">
         <div class="container">
             <h2>Andrej Makrlík</h2>
             <p class="title">Majitel & Zakladatel</p>
@@ -36,7 +37,7 @@
 
     <div class="column">
         <div class="card">
-        <img src="img\kiko.png" alt="Kiko" style="width:100%">
+        <img src="../img/kiko.png" alt="Kiko" style="width:100%">
         <div class="container">
             <h2>Christian Ullmann</h2>
             <p class="title">Spolumajitel & Investor</p>
@@ -49,7 +50,7 @@
 
     <div class="column">
         <div class="card">
-        <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+        <img src="../img/john.png" alt="John" style="width:100%">
         <div class="container">
             <h2>Václav Kubrt</h2>
             <p class="title">Automechanik</p>

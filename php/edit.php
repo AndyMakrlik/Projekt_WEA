@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleIndex.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/edit.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Úprava</title>
 </head>
 <body>
-    <?php include 'nav.php'; ?>
-    <?php
+    <?php 
         session_start();
-        if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
-            require_once "db.php";
-        if ($con->connect_error) {
-            die("Chyba připojení k databázi: " . $con->connect_error);
+        var_dump($_SESSION);
+        include 'nav.php';
+        if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == false) {
+            header("location: index.php");
+            die();
         }
+    ?>
+    <?php
+            require_once "db.php";
             if(isset($_GET['id'])) {
                 $inzerat = null;
                 $id = $_GET['id'];
@@ -25,7 +29,6 @@
                     $inzerat = $result->fetch_assoc();
 
                 }
-                // Zkontrolujeme, zda byl formulář odeslán
 
                 if(isset($_POST['upravit'])) {
                     require_once "db.php";
@@ -51,10 +54,6 @@
                         die();
                 }
             }
-        } else {
-            header("location: index.php");
-            die();
-        }
     ?>
     <form method="post">
         <label for="nazev" >Název inzerátu:</label>
