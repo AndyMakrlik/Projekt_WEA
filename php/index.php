@@ -45,12 +45,13 @@
                         <p><strong>Palivo:</strong> ' . $inzerat["palivo"] . '</p>
                         <p><strong>Převodovka:</strong> ' . $inzerat["prevodovka"] . '</p>
                         <p><strong>Najeto:</strong> ' . formatCisla($inzerat["najezd"]) . ' Km</p>
-                        <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>';
-                        if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
-                            echo '<button class="odstranit"><a href="delete.php?id=' . $inzerat["id"] . '">❌</a></button>';
-                            echo '<a href="../php/edit.php?id=' . $inzerat["id"] . '"><button class="upravit"></button></a>';
-                        }
-                        echo '</div>';
+                        <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>
+                ';
+                if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
+                    echo '<form action="delete.php" method="GET"><button type="submit" class="odstranit">❌</button><input type="hidden" name="id" value="' . $inzerat["id"] . '"></form>';
+                    echo '<form action="edit.php" method="GET"><button type="submit" class="upravit"><input type="hidden" name="id" value="' . $inzerat["id"] . '"></button></form>';
+                }
+                    echo '</div>';
             }
             echo '</div>';
         } else {

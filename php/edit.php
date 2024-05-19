@@ -27,7 +27,6 @@
                 $result = $con->query($sql);
                 if ($result->num_rows > 0) {
                     $inzerat = $result->fetch_assoc();
-
                 }
 
                 if(isset($_POST['upravit'])) {

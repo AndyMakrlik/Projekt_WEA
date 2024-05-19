@@ -19,6 +19,7 @@
 }
 
 .odstranit {
+    font-size: 18px;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -32,6 +33,7 @@
 .odstranit:hover {
     border: solid 1px red;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .upravit {

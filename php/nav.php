@@ -23,8 +23,12 @@
             </div>
         <?php else: ?>
             <div>
-                <form action="login.php" class="formBut"><button class="navBut">Přihlásit</button></form>
-                <form action="registration.php" class="formBut"><button class="navBut">Registrovat</button></form>
+                <form action="login.php" class="formBut">
+                    <button class="navBut">Přihlásit</button>
+                </form>
+                <form action="registration.php" class="formBut">
+                    <button class="navBut">Registrovat</button>
+                </form>
             </div>
         <?php endif; ?>
     </div>
