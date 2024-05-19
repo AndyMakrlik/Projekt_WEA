@@ -12,56 +12,12 @@
     <?php
         session_start();
         var_dump($_SESSION);
-        if ($_SESSION["jePrihlasen"]) {
+        include 'nav.php';
+        if (!$_SESSION["jePrihlasen"]) {
             header("location: index.php");
             die();
         }
     ?>
-
-    <nav class="navBar">
-        <div class="navDiv">
-            <div class="">
-                <div class="divLogo"><a href="index.php"><img src="img\logo.png" alt="Logo" style="height: 100px;"></a></div>
-                <div class="divBut">
-                    <?php
-                        if (isset($_SESSION["jePrihlasen"])) {
-                            if($_SESSION["jePrihlasen"] == true){
-                                echo '
-                                    <button class="addBut"><a href="addAdd.php">Přidat Inzerát</a></button>
-                                ';
-                            }   
-                        } 
-                    ?>
-                </div>
-            </div>
-            
-            <ul>
-                <li><a href="index.php">Domů</a></li>
-                <li><a href="info.php">O nás</a></li>
-                <li><a href="contact.php">Kontakt</a></li>
-                <?php
-                    if (isset($_SESSION["jePrihlasen"])) {
-                        if($_SESSION["jePrihlasen"] == false){
-                            echo '
-                                <button class="navBut"><a href="login.php">Přihlásit</a></button>
-                                <button class="navBut"><a href="registration.php">Registrovat</a></button>
-                            ';
-                        } else {
-                            echo'
-                                <button class="profileBut"><a href="profile.php">Profil</a></button>
-                            ';
-                        }
-                    } else {
-                        echo '
-                                <button class="navBut"><a href="login.php">Přihlásit</a></button>
-                                <button class="navBut"><a href="registration.php">Registrovat</a></button>
-                            ';
-                    }
-                ?>
-                
-            </ul>
-        </div>
-    </nav>
 
     <h2>Přidat inzerát auta</h1>
     <form method="post">
@@ -98,7 +54,7 @@
         <label for="popis">Popis:</label>
         <input id="popis" name="popis"></input><br>
 
-        <button name="pridat" type="submit">Přidat inzerát</button>
+        <button name="pridat" type="submit" id="pridatBut">Přidat inzerát</button>
     </form>
 
     <?php
@@ -108,14 +64,14 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $nazev = $_POST["nazev"];
                 $obrazek = $_POST["obrazek"];
-                $cena = $_POST["cena"];
+                $cena = preg_replace('/[^a-z0-9 ]/i', '', $_POST["cena"]);
                 $znacka = $_POST["znacka"];
                 $model = $_POST["model"];
-                $rok = $_POST["rok"];
+                $rok = preg_replace('/[^a-z0-9 ]/i', '', $_POST["rok"]);
                 $motor = $_POST["motor"];
                 $palivo = $_POST["palivo"];
                 $prevodovka = $_POST["prevodovka"];
-                $najeto = $_POST["najeto"];
+                $najeto = preg_replace('/[^a-z0-9 ]/i', '', $_POST["najeto"]);
                 $popis = $_POST["popis"];
 
                 $sql = "INSERT INTO autobazar_inzeraty (nazev, obrazek, cena, znacka, model, rok, motor, palivo, prevodovka, najezd, popis) VALUES ('$nazev', '$obrazek', '$cena', '$znacka', '$model', '$rok', '$motor', '$palivo', '$prevodovka', '$najeto', '$popis')";

@@ -171,6 +171,7 @@ button a {
 .upravit:hover {
     border: solid 1px black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .inzerat h2 {

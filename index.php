@@ -94,7 +94,7 @@
                         <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>';
                         if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
                             echo '<button class="odstranit"><a href="delete.php?id=' . $inzerat["id"] . '">❌</a></button>';
-                            echo '<button class="upravit"><a href="upravit.php?id=' . $inzerat["id"] . '"></a></button>';
+                            echo '<a href="upravit.php?id=' . $inzerat["id"] . '"><button class="upravit"></button></a>';
                         }
                         echo '</div>';
             }

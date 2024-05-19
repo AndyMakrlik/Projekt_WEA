@@ -1,8 +1,5 @@
-body {
-    margin: 20px;
-}
-
 form {
+    margin-left: 20px;
     background-color: #a5a5a5;
     max-width: 350px;
     padding: 5px;
@@ -30,7 +27,7 @@ input {
     border: none;
     border-radius: 5px;
 }
-button {
+#pridatBut {
     margin-top: 20px;
     background-color: #545554;
     color: white;
@@ -39,6 +36,6 @@ button {
     
 }
 
-button:hover {
+#pridatBut:hover {
     background-color: #cacaca;
 }
