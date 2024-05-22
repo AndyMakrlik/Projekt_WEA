@@ -35,14 +35,14 @@
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $nazev = $_POST["nazev"];
                         $obrazek = $_POST["obrazek"];
-                        $cena = preg_replace('/[^a-z0-9 ]/i', '', $_POST["cena"]);
+                        $cena = preg_replace('/[^0-9]/', '', $_POST["cena"]);
                         $znacka = $_POST["znacka"];
                         $model = $_POST["model"];
-                        $rok = preg_replace('/[^a-z0-9 ]/i', '', $_POST["rok"]);
+                        $rok = preg_replace('/[^0-9]/', '', $_POST["rok"]);
                         $motor = $_POST["motor"];
                         $palivo = $_POST["palivo"];
                         $prevodovka = $_POST["prevodovka"];
-                        $najeto = preg_replace('/[^a-z0-9 ]/i', '', $_POST["najeto"]);
+                        $najeto = preg_replace('/[^0-9]/', '', $_POST["najeto"]);
                         $popis = $_POST["popis"];
 
                         $sql = "UPDATE autobazar_inzeraty SET nazev = '$nazev', obrazek = '$obrazek', cena = '$cena', znacka = '$znacka', model = '$model', rok = '$rok', motor = '$motor', palivo = '$palivo', prevodovka = '$prevodovka', najezd = '$najeto', popis = '$popis' WHERE id = $id";
