@@ -19,8 +19,8 @@
         }
     ?>
 
-    <h2>Přidat inzerát auta</h1>
-    <form method="post" id="formular">
+    <h1>Přidat inzerát auta</h1>
+    <form id="inzeratInfo" method="post" id="formular">
         <label for="nazev" >Název inzerátu:</label>
         <input type="text" id="nazev" name="nazev" ><br>
 
@@ -54,7 +54,7 @@
         <label for="popis">Popis:</label>
         <input id="popis" name="popis"></input><br>
 
-        <button name="pridat" type="submit" id="pridatBut">Přidat inzerát</button>
+        <button id="pridatInzerat" name="pridat" type="submit" id="pridatBut">Přidat inzerát</button>
     </form>
 
     <?php

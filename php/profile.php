@@ -28,5 +28,8 @@
     <form action="index.php" method="post">
         <button>Přejít na inzeráty</button>
     </form>
+    <form action="change.php" method="post">
+        <button>Přejít na inzeráty</button>
+    </form>
 </body>
 </html>

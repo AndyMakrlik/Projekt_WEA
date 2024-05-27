@@ -54,7 +54,8 @@
                 }
             }
     ?>
-    <form method="post">
+    <h1>Upravit inzerát auta</h1>
+    <form id="inzeratInfo" method="post">
         <label for="nazev" >Název inzerátu:</label>
         <input type="text" id="nazev" name="nazev" value="<?php echo $inzerat['nazev']; ?>"><br>
 

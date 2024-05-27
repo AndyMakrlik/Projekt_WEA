@@ -1,42 +1,47 @@
-#formular {
-    margin-left: 20px;
-    background-color: #a5a5a5;
-    max-width: 350px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 5 6px 8px rgba(163, 182, 90, 0.1);
-    border-radius: 10px;
-    border-top-color: magenta       ;
-    border-right-color: yellow;
-    border-left-color: red;
-    border-bottom-color: aqua;
-    
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#inzeratInfo {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #555;
 }
 
 input {
-    color: pink;
-    background-color: #ccc;
     width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#pridatInzerat {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
     border: none;
-    border-radius: 5px;
-}
-
-#pridatBut {
+    border-radius: 4px;
     margin-top: 20px;
-    background-color: #545554;
+    transition: 0.8s;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    
+    font-weight: bold;
+    font-size: 18px;
 }
 
-#pridatBut:hover {
-    background-color: #cacaca;
+#pridatInzerat:hover {
+    background-color: whitesmoke;
+    color: gray;
+    cursor: pointer;
 }
