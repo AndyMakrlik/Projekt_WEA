@@ -15,52 +15,78 @@
         var_dump($_SESSION);
         var_dump($_POST);
         include 'nav.php';
-        $chyby = "";
+        $chyby = array(
+            'prezdivka' => '',
+            'email' => '',
+            'heslo' => ''
+        );
 
         if (isset($_POST["registrace"])){
             if (strlen($_POST["prezdivka"]) < 5) {
-                $chyby .= "Přezdívka by měla mít aspoň 5 znaků! \n";
+                $chyby['prezdivka'] = "Přezdívka by měla mít aspoň 5 znaků!";
             }
             if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-                $chyby .= "Email zapište ve správném formátu! \n";
+                $chyby['email'] = "Email zapište ve správném formátu!";
             }
             if (strlen($_POST["heslo"]) < 8) {
-                $chyby .= "Heslo by mělo být delší než 8 znaků! \n";
+                $chyby['heslo'] = "Heslo by mělo být delší než 8 znaků!";
             }
-            if (empty($chyby)) {
+            if (empty($chyby['prezdivka']) && empty($chyby['email']) && empty($chyby['heslo'])) {
                 require_once "db.php";
-                $prezdivka = $_POST["prezdivka"];
-                $email = $_POST["email"];
-                $heslo = $_POST["heslo"];
-                $sifrovaneHeslo = password_hash($heslo, PASSWORD_BCRYPT);
-                $sql = "INSERT INTO autobazar(prezdivka, email, heslo) VALUES('$prezdivka', '$email', '$sifrovaneHeslo')";
-                $con->query($sql);
-                $con->close();
+                $jmeno = $_POST["prezdivka"];
+                $mail = $_POST["email"];
+                $sql = "SELECT * FROM autobazar WHERE prezdivka = '$jmeno'";
+                $result = $con->query($sql);
+                $sqlEmail = "SELECT * FROM autobazar WHERE email = '$mail'";
+                $vysledek = $con->query($sqlEmail);
+                if ($result->num_rows > 0) {
+                    $chyby["prezdivka"] = "Přezdívku již používá jíný uživatel";
+                    $con->close();
+                } else if ($vysledek->num_rows > 0) {
+                    $chyby["email"] = "Email již používá jíný uživatel";
+                    $con->close();
+                } else {
+                    $prezdivka = $_POST["prezdivka"];
+                    $email = $_POST["email"];
+                    $heslo = $_POST["heslo"];
+                    $sifrovaneHeslo = password_hash($heslo, PASSWORD_BCRYPT);
+                    $sql = "INSERT INTO autobazar(prezdivka, email, heslo) VALUES('$prezdivka', '$email', '$sifrovaneHeslo');";
+                    $con->query($sql);
+                    $con->close();
+                    header("location: index.php");
+                }   
             }
         }
-        
-        echo $chyby;
     ?>
 
-    <div class="div">
-        <div class="formular">
+    <div id="div">
+        <div id="formular">
             <h1>Registrace</h1>
             <form action="registration.php" method="post">
                 <div class="vstupy">
                     <div class="vstupniPole">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Přezdívka" name="prezdivka">
+                        <input class="informace" type="text" placeholder="Přezdívka" name="prezdivka">
                     </div>
+                    <?php if ($chyby['prezdivka']): ?>
+                        <span class="error"><?= $chyby['prezdivka'] ?></span>
+                    <?php endif; ?>
                     <div class="vstupniPole">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="email">
+                        <input class="informace" type="email" placeholder="Email" name="email">
                     </div>
+                    <?php if ($chyby['email']): ?>
+                            <div class="error"><?= $chyby['email'] ?></div>
+                        <?php endif; ?>
                     <div class="vstupniPole">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Heslo" name="heslo">
+                        <input class="informace" type="password" placeholder="Heslo" name="heslo">
                     </div>
+                    <?php if ($chyby['heslo']): ?>
+                        <div class="error"><?= $chyby['heslo'] ?></div>
+                    <?php endif; ?>
                     <div>
-                        <input type="submit" value="Registrovat" name="registrace">
+                        <input id="registrovat" type="submit" value="Registrovat" name="registrace">
                     </div>
                 </div>
             </form>

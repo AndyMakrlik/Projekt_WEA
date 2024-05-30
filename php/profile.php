@@ -21,15 +21,17 @@
         }
     ?>
 
-    <h1>Zdravím uživateli <?= $_SESSION["prezdivka"] ?></h1>
-    <form action="logout.php" method="post">
-        <button>Odhlásit se</button>
-    </form>
-    <form action="index.php" method="post">
-        <button>Přejít na inzeráty</button>
-    </form>
-    <form action="change.php" method="post">
-        <button>Přejít na inzeráty</button>
-    </form>
+    <h1 id="nadpis">Zdravím uživateli <?= $_SESSION["prezdivka"] ?></h1>
+    <div id="divButs">    
+        <form class = "formProfil" action="index.php" method="post">
+            <button class="butProfil">Přejít na inzeráty</button>
+        </form>
+        <form class = "formProfil" action="change.php" method="post">
+            <button class="butProfil">Změnit heslo</button>
+        </form>
+        <form class = "formProfil" action="logout.php" method="post">
+            <button class="butProfil">Odhlásit se</button>
+        </form>
+    </div>
 </body>
 </html>

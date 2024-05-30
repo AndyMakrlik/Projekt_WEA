@@ -15,18 +15,21 @@
         var_dump($_SESSION);
         var_dump($_POST);
         include 'nav.php';
-        $chyby = "";
+        $chyby = array(
+            'prezdivka' => '',
+            'heslo' => ''
+        );
         
         if (isset($_POST["prihlaseni"])) {
             if (strlen($_POST["prezdivka"]) < 5) {
-                $chyby .= "Přezdívka by měla být delší než 5 znaků! \n";
+                $chyby['prezdivka'] .= "Přezdívka by měla být delší než 5 znaků! \n";
             }
 
             if (strlen($_POST["heslo"]) < 8) {
-                $chyby .= "Heslo by mělo být delší než 8 znaků! \n";
+                $chyby['heslo'] .= "Heslo by mělo být delší než 8 znaků! \n";
             }
 
-            if (empty($errors)) {
+            if (empty($chyby['prezdivka']) && empty($chyby['heslo'])) {
                 require_once "db.php";
                 $prezdivka = $_POST["prezdivka"];
                 $sql = "SELECT * FROM autobazar WHERE prezdivka = '$prezdivka';";
@@ -51,21 +54,27 @@
         }
     ?>
 
-    <div class="div">
-        <div class="formular">
+    <div id="div">
+        <div id="formular">
             <h1>Přihlášení</h1>
             <form action="login.php" method="post">
-                <div class="vstupy">
+                <div id="vstupy">
                     <div class="vstupniPole">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Přezdívka" name="prezdivka">
+                        <input class="informace" type="text" placeholder="Přezdívka" name="prezdivka">
                     </div>
+                    <?php if ($chyby['prezdivka']): ?>
+                        <span class="error"><?= $chyby['prezdivka'] ?></span>
+                    <?php endif; ?>
                     <div class="vstupniPole">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Heslo" name="heslo">
+                        <input class="informace" type="password" placeholder="Heslo" name="heslo">
                     </div>
+                    <?php if ($chyby['heslo']): ?>
+                        <div class="error"><?= $chyby['heslo'] ?></div>
+                    <?php endif; ?>
                     <div>
-                        <input type="submit" value="Příhlasit" name="prihlaseni">
+                        <input id="prihlasit" type="submit" value="Příhlásit" name="prihlaseni">
                     </div>
                 </div>
             </form>

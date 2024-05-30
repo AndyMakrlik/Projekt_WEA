@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.formProfil {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 100px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.butProfil {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    border: none;
+    border-radius: 4px;
+    transition: 0.8s;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.butProfil:hover {
+    background-color: whitesmoke;
+    color: gray;
+    cursor: pointer;
+}
+
+#divButs {
+    margin-top: 150px;
+}

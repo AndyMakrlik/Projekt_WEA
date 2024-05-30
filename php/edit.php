@@ -87,7 +87,7 @@
         <input id="najeto" name="najeto" value="<?php echo $inzerat['najezd']; ?>"><br>
 
         <label for="popis">Popis:</label>
-        <input id="popis" name="popis" value="<?php echo $inzerat['popis']; ?>"><br>
+        <textarea rows="5" id="popis" name="popis"><?php echo $inzerat['popis']; ?></textarea><br>
 
         <button name="upravit" type="submit" id="upravitBut">Upravit</button>
     </form>

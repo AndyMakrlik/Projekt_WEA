@@ -22,37 +22,37 @@
     <h1>Přidat inzerát auta</h1>
     <form id="inzeratInfo" method="post" id="formular">
         <label for="nazev" >Název inzerátu:</label>
-        <input type="text" id="nazev" name="nazev" ><br>
+        <input type="text" id="nazev" name="nazev"><br>
 
         <label for="obrazek" >Odkaz obrázku:</label>
-        <input type="text" id="obrazek" name="obrazek" ><br>
+        <input type="text" id="obrazek" name="obrazek"><br>
 
         <label for="cena" >Cena:</label>
-        <input type="text" id="cena" name="cena" ><br>
+        <input type="text" id="cena" name="cena"><br>
 
         <label for="znacka" >Značka auta:</label>
-        <input type="text" id="znacka" name="znacka" ><br>
+        <input type="text" id="znacka" name="znacka"><br>
 
         <label for="model">Model auta:</label>
-        <input type="text" id="model" name="model" ><br>
+        <input type="text" id="model" name="model"><br>
 
         <label for="rok_vyroby">Rok výroby:</label>
-        <input type="text" id="rok" name="rok" ><br>
+        <input type="text" id="rok" name="rok"><br>
 
         <label for="motor">Motor:</label>
-        <input id="motor" name="motor"></input><br>
+        <input id="motor" name="motor"><br>
 
         <label for="palivo">Palivo:</label>
-        <input id="palivo" name="palivo"></input><br>
+        <input id="palivo" name="palivo"><br>
 
         <label for="prevodovka">Převodovka:</label>
-        <input id="prevodovka" name="prevodovka"></input><br>
+        <input id="prevodovka" name="prevodovka"><br>
 
         <label for="najeto">Najeto:</label>
-        <input id="najeto" name="najeto"></input><br>
+        <input id="najeto" name="najeto"><br>
 
         <label for="popis">Popis:</label>
-        <input id="popis" name="popis"></input><br>
+        <textarea id="popis" name="popis" rows="5"></textarea><br>
 
         <button id="pridatInzerat" name="pridat" type="submit" id="pridatBut">Přidat inzerát</button>
     </form>

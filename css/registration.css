@@ -1,13 +1,17 @@
-.formular {
+#formular {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 #2c2c2c;
     width: 300px;
     margin: auto;
 }
 
-.formular h1 {
+#div {
+    margin-top: 200px;
+}
+
+#formular h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
@@ -25,14 +29,14 @@
     color: #666;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+.informace {
     padding: 10px;
     border-radius: 5px;
     border: none;
     width: 100%;
 }
 
-input[type="submit"] {
+#registrovat {
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -40,8 +44,17 @@ input[type="submit"] {
     color: white;
     cursor: pointer;
     width: 100%;
+    transition: 0.8s;
 }
 
-input[type="submit"]:hover {
-    background-color: #4b4b4b;;
+#registrovat:hover {
+    background-color: #4b4b4b;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 15px;
+    display: block;
 }
