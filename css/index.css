@@ -108,6 +108,14 @@
     animation: animace 10s ease-in-out forwards;
 }
 
+#alertNothing {
+    padding: 20px;
+    background-color: #f5360d;
+    color: black;
+    display: none;
+    font-size: 18px;
+}
+
 .closebtn {
     margin-left: 15px;
     color: black;

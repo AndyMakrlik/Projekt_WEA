@@ -27,6 +27,10 @@
                 $result = $con->query($sql);
                 if ($result->num_rows > 0) {
                     $inzerat = $result->fetch_assoc();
+                    if($_SESSION["id_uzivatele"] != $inzerat["fk_uzivatel"]){
+                        header("location: index.php");
+                        die();
+                    }
                 }
 
                 if(isset($_POST['upravit'])) {
