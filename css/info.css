@@ -1,35 +1,76 @@
-.column {
-    float: left;
-    width: 33.3%;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.branch-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
-    padding: 0 8px;
 }
-  
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
+
+.branch-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 16px;
+    object-fit: cover;
 }
-  
-.about-section {
-    padding: 15px;
-    text-align: center;
-    background-color: gray;
+
+.branch-info {
+    flex: 1;
+}
+
+.branch-info span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.w3-card-4 {
+    margin-bottom: 32px;
+}
+
+.w3-padding-32 {
+    padding: 32px;
+}
+
+.section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.section h1,
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 16px;
+}
+
+.section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    background-color: #f9f9f9;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-top: 8px;
+}
+
+.read-more-btn:hover {
+    background-color: #007BFF;
     color: white;
 }
-  
-.container {
-    padding: 16px;
-}
-  
-.title {
-    color: grey;
-    margin-bottom: 10px;
-}
 
-.profileImg {
-    padding: 50px;
-}
-
-.pInfo {
-    margin-top: 10px;
+.opening-hours-info {
+    display: none;
+    margin-top: 8px;
+    font-weight: bold;
 }
