@@ -45,6 +45,7 @@
                         echo ("úspěch");
                         $_SESSION["prezdivka"] = $_POST["prezdivka"];
                         $_SESSION['login'] = true;
+                        $_SESSION["id_uzivatele"] = $uzivatel->id;
                         header("location: profile.php");
                         die();
                     } else {

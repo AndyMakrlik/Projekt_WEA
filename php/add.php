@@ -73,8 +73,9 @@
                 $prevodovka = $_POST["prevodovka"];
                 $najeto = preg_replace('/[^0-9]/', '', $_POST["najeto"]);
                 $popis = $_POST["popis"];
+                $fk_uzivatele = $_SESSION["id_uzivatele"];
 
-                $sql = "INSERT INTO autobazar_inzeraty (nazev, obrazek, cena, znacka, model, rok, motor, palivo, prevodovka, najezd, popis) VALUES ('$nazev', '$obrazek', '$cena', '$znacka', '$model', '$rok', '$motor', '$palivo', '$prevodovka', '$najeto', '$popis')";
+                $sql = "INSERT INTO autobazar_inzeraty (nazev, obrazek, cena, znacka, model, rok, motor, palivo, prevodovka, najezd, popis, fk_uzivatel) VALUES ('$nazev', '$obrazek', '$cena', '$znacka', '$model', '$rok', '$motor', '$palivo', '$prevodovka', '$najeto', '$popis', '$fk_uzivatele')";
                 $con->query($sql);
                 $con->close();
                 $_SESSION["add"] = true;

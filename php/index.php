@@ -5,6 +5,7 @@
     $edit = false;
     $logout = false;
     $delete = false;
+    $nothing = false;
     if (isset($_SESSION['registration']) && $_SESSION['registration'] == true) {
         $registration = true;
         unset($_SESSION['registration']);
@@ -25,6 +26,11 @@
         $delete = true;
         unset($_SESSION['delete']);
     }
+
+    if (isset($_SESSION['nothing']) && $_SESSION['nothing'] == true) {
+        $nothing = true;
+        unset($_SESSION['nothing']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +43,10 @@
     <title>Autobazar</title>
 </head>
 <body>
+    <div id="alertNothing">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Smůla!</strong> Aktuálně nemáme k dispozici žádná auta k inzerci.
+    </div>
     <div id="alertRegistration">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Úspěch!</strong> Jste registrován.
@@ -56,34 +66,7 @@
     <div id="alertDelete">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Úspěch!</strong> Odstranil jste inzerát.
-    </div>
-    <script>
-        <?php if ($registration): ?>
-            const div = document.getElementById("alertRegistration");
-            div.style.display = 'block';
-            setTimeout(function() {div.style.display = 'none'; }, 10000);
-        <?php endif; ?>
-        <?php if ($add): ?>
-            const div = document.getElementById("alertAdd");
-            div.style.display = 'block';
-            setTimeout(function() {div.style.display = 'none'; }, 10000);
-        <?php endif; ?>
-        <?php if ($edit): ?>
-            const div = document.getElementById("alertEdit");
-            div.style.display = 'block';
-            setTimeout(function() {div.style.display = 'none'; }, 10000);
-        <?php endif; ?>
-        <?php if ($logout): ?>
-            const div = document.getElementById("alertLogout");
-            div.style.display = 'block';
-            setTimeout(function() {div.style.display = 'none'; }, 10000);
-        <?php endif; ?>
-        <?php if ($delete): ?>
-            const div = document.getElementById("alertDelete");
-            div.style.display = 'block';
-            setTimeout(function() {div.style.display = 'none'; }, 10000);
-        <?php endif; ?>
-    </script> 
+    </div> 
     <?php
         //var_dump($_SESSION);
         include 'nav.php';
@@ -121,7 +104,7 @@
                         <p><strong>Najeto:</strong> ' . formatCisla($inzerat["najezd"]) . ' Km</p>
                         <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>
                 ';
-                if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true) {
+                if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true && isset($_SESSION["id_uzivatele"]) && $_SESSION["id_uzivatele"] == $inzerat["fk_uzivatel"]) {
                     echo '<form action="delete.php" method="GET"><button type="submit" class="odstranit">❌</button><input type="hidden" name="id" value="' . $inzerat["id"] . '"></form>';
                     echo '<form action="edit.php" method="GET"><button type="submit" class="upravit"><input type="hidden" name="id" value="' . $inzerat["id"] . '"></button></form>';
                 }
@@ -129,7 +112,7 @@
             }
             echo '</div>';
         } else {
-            echo 'Nejsou tu žádne inzeráty!';
+            $_SESSION["nothing"] = true;
         }
         
         $con->close();
@@ -137,6 +120,37 @@
         function formatCisla($cislo) {
             return number_format($cislo, 0, '.', ' ');
         }
-    ?>  
+    ?>
+    <script>
+        <?php if ($registration): ?>
+            const div = document.getElementById("alertRegistration");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($add): ?>
+            const div = document.getElementById("alertAdd");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($edit): ?>
+            const div = document.getElementById("alertEdit");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($logout): ?>
+            const div = document.getElementById("alertLogout");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($delete): ?>
+            const div = document.getElementById("alertDelete");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($nothing): ?>
+            const div = document.getElementById("alertNothing");
+            div.style.display = 'block';
+        <?php endif; ?>
+    </script>  
 </body>
 </html>
