@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/registration.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">¨
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/b9aa334442.js" crossorigin="anonymous"></script>
     <title>Registrace</title>
 </head>
 <body>
     <?php
         session_start();
-        var_dump($_SESSION);
-        var_dump($_POST);
+        //var_dump($_SESSION);
+        //var_dump($_POST);
         include 'nav.php';
         $chyby = array(
             'prezdivka' => '',
@@ -53,6 +53,7 @@
                     $sql = "INSERT INTO autobazar(prezdivka, email, heslo) VALUES('$prezdivka', '$email', '$sifrovaneHeslo');";
                     $con->query($sql);
                     $con->close();
+                    $_SESSION['registration'] = true;
                     header("location: index.php");
                 }   
             }

@@ -12,7 +12,7 @@
 <body>
     <?php 
         session_start();
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
         include 'nav.php';
         if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == false) {
             header("location: index.php");
@@ -26,11 +26,11 @@
 
         if (isset($_POST["zmenit"])) {
             if (strlen($_POST["noveHeslo"]) < 8) {
-                $chyby['stareHeslo'] .= "Heslo by mělo být delší než 8 znaků! \n";
+                $chyby['noveHeslo'] .= "Heslo by mělo být delší než 8 znaků!";
             }
 
             if (strlen($_POST["stareHeslo"]) < 8) {
-                $chyby['noveHeslo'] .= "Heslo by mělo být delší než 8 znaků! \n";
+                $chyby['stareHeslo'] .= "Heslo by mělo být delší než 8 znaků!";
             }
 
             if (empty($chyby['stareHeslo']) && empty($chyby['noveHeslo'])) {
@@ -39,7 +39,7 @@
                 $sql = "SELECT * FROM autobazar WHERE prezdivka = '$prezdivka';";
                 $vysledek = $con->query($sql);
                 if ($vysledek->num_rows == 1) {
-                    print_r($vysledek);
+                    //print_r($vysledek);
                     $uzivatel = $vysledek->fetch_object();
                     $stareHeslo = $_POST["stareHeslo"];
                     $noveHeslo = $_POST["noveHeslo"];
@@ -49,6 +49,8 @@
                         $sifrovaneHeslo = password_hash($noveHeslo, PASSWORD_BCRYPT);
                         $sql = "UPDATE autobazar SET heslo = '$sifrovaneHeslo' WHERE prezdivka = '$prezdivka';";
                         $con->query($sql);
+                        $con->close();
+                        $_SESSION['change'] = true;
                         header("location: profile.php");
                         die();
                     } else {

@@ -12,8 +12,8 @@
 <body>
     <?php
         session_start();
-        var_dump($_SESSION);
-        var_dump($_POST);
+        //var_dump($_SESSION);
+        //var_dump($_POST);
         include 'nav.php';
         $chyby = array(
             'prezdivka' => '',
@@ -22,11 +22,11 @@
         
         if (isset($_POST["prihlaseni"])) {
             if (strlen($_POST["prezdivka"]) < 5) {
-                $chyby['prezdivka'] .= "Přezdívka by měla být delší než 5 znaků! \n";
+                $chyby['prezdivka'] .= "Přezdívka by měla být delší než 5 znaků!";
             }
 
             if (strlen($_POST["heslo"]) < 8) {
-                $chyby['heslo'] .= "Heslo by mělo být delší než 8 znaků! \n";
+                $chyby['heslo'] .= "Heslo by mělo být delší než 8 znaků!";
             }
 
             if (empty($chyby['prezdivka']) && empty($chyby['heslo'])) {
@@ -44,6 +44,7 @@
                         $_SESSION["jePrihlasen"] = true;
                         echo ("úspěch");
                         $_SESSION["prezdivka"] = $_POST["prezdivka"];
+                        $_SESSION['login'] = true;
                         header("location: profile.php");
                         die();
                     } else {

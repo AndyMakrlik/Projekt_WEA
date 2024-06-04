@@ -1,3 +1,31 @@
+<?php
+    session_start();
+    $registration = false;
+    $add = false;
+    $edit = false;
+    $logout = false;
+    $delete = false;
+    if (isset($_SESSION['registration']) && $_SESSION['registration'] == true) {
+        $registration = true;
+        unset($_SESSION['registration']);
+    }
+    if (isset($_SESSION['add']) && $_SESSION['add'] == true) {
+        $add = true;
+        unset($_SESSION['add']);
+    }
+    if (isset($_SESSION['edit']) && $_SESSION['edit'] == true) {
+        $edit = true;
+        unset($_SESSION['edit']);
+    }
+    if (isset($_SESSION['logout']) && $_SESSION['logout'] == true) {
+        $logout = true;
+        unset($_SESSION['logout']);
+    }
+    if (isset($_SESSION['delete']) && $_SESSION['delete'] == true) {
+        $delete = true;
+        unset($_SESSION['delete']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +37,55 @@
     <title>Autobazar</title>
 </head>
 <body>
+    <div id="alertRegistration">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Úspěch!</strong> Jste registrován.
+    </div>
+    <div id="alertAdd">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Úspěch!</strong> Přidal jste inzerát.
+    </div>
+    <div id="alertEdit">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Úspěch!</strong> Upravil jste inzerát.
+    </div>
+    <div id="alertLogout">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Úspěch!</strong> Odhlásil jste se.
+    </div>
+    <div id="alertDelete">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Úspěch!</strong> Odstranil jste inzerát.
+    </div>
+    <script>
+        <?php if ($registration): ?>
+            const div = document.getElementById("alertRegistration");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($add): ?>
+            const div = document.getElementById("alertAdd");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($edit): ?>
+            const div = document.getElementById("alertEdit");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($logout): ?>
+            const div = document.getElementById("alertLogout");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+        <?php if ($delete): ?>
+            const div = document.getElementById("alertDelete");
+            div.style.display = 'block';
+            setTimeout(function() {div.style.display = 'none'; }, 10000);
+        <?php endif; ?>
+    </script> 
     <?php
-        session_start();
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
         include 'nav.php';
     ?>
 

@@ -54,3 +54,12 @@ textarea {
     color: gray;
     cursor: pointer;
 }
+
+#cena, #najeto, #rok { 
+    -moz-appearance: textfield; /*Skrytí šipek na přidávání a odebírání jednotek FireFox*/
+}
+
+#cena::-webkit-outer-spin-button, #cena::-webkit-inner-spin-button, #najeto::-webkit-outer-spin-button, #najeto::-webkit-inner-spin-button, #rok::-webkit-outer-spin-button, #rok::-webkit-inner-spin-button {
+    -webkit-appearance: none; /*Skrytí šipek na přidávání a odebírání jednotek Chrome, Safari, Edge, Opera*/
+    margin: 0;
+}

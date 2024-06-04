@@ -11,7 +11,7 @@
 <body>
     <?php 
         session_start();
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
         include 'nav.php';
         if (isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == false) {
             header("location: index.php");
@@ -48,6 +48,7 @@
                         $sql = "UPDATE autobazar_inzeraty SET nazev = '$nazev', obrazek = '$obrazek', cena = '$cena', znacka = '$znacka', model = '$model', rok = '$rok', motor = '$motor', palivo = '$palivo', prevodovka = '$prevodovka', najezd = '$najeto', popis = '$popis' WHERE id = $id";
                         $con->query($sql);
                         $con->close();
+                        $_SESSION["edit"] = true;
                     }
                         header("location: index.php");
                         die();
@@ -57,37 +58,37 @@
     <h1>Upravit inzerát auta</h1>
     <form id="inzeratInfo" method="post">
         <label for="nazev" >Název inzerátu:</label>
-        <input type="text" id="nazev" name="nazev" value="<?php echo $inzerat['nazev']; ?>"><br>
+        <input type="text" id="nazev" name="nazev" value="<?php echo $inzerat['nazev']; ?>" required><br>
 
         <label for="obrazek" >Odkaz obrázku:</label>
-        <input type="text" id="obrazek" name="obrazek" value="<?php echo $inzerat['obrazek']; ?>"><br>
+        <input type="url" id="obrazek" name="obrazek" value="<?php echo $inzerat['obrazek']; ?>" required><br>
 
         <label for="cena" >Cena:</label>
-        <input type="text" id="cena" name="cena" value="<?php echo $inzerat['cena']; ?>"><br>
+        <input type="number" id="cena" name="cena" value="<?php echo $inzerat['cena']; ?>" required min="0"><br>
 
         <label for="znacka" >Značka auta:</label>
-        <input type="text" id="znacka" name="znacka" value="<?php echo $inzerat['znacka']; ?>"><br>
+        <input type="text" id="znacka" name="znacka" value="<?php echo $inzerat['znacka']; ?>" required><br>
 
         <label for="model">Model auta:</label>
-        <input type="text" id="model" name="model" value="<?php echo $inzerat['model']; ?>"><br>
+        <input type="text" id="model" name="model" value="<?php echo $inzerat['model']; ?>" required><br>
 
         <label for="rok_vyroby">Rok výroby:</label>
-        <input type="text" id="rok" name="rok" value="<?php echo $inzerat['rok']; ?>"><br>
+        <input type="number" id="rok" name="rok" value="<?php echo $inzerat['rok']; ?>" required min="0" max="2024"><br>
 
-        <label for="motor">Motor:</label>
-        <input id="motor" name="motor"value="<?php echo $inzerat['motor']; ?>"><br>
+        <label for="motor">Motor/Výkon  :</label>
+        <input type="text" id="motor" name="motor"value="<?php echo $inzerat['motor']; ?>" required><br>
 
         <label for="palivo">Palivo:</label>
-        <input id="palivo" name="palivo" value="<?php echo $inzerat['palivo']; ?>"><br>
+        <input type="text" id="palivo" name="palivo" value="<?php echo $inzerat['palivo']; ?>" required><br>
 
         <label for="prevodovka">Převodovka:</label>
-        <input id="prevodovka" name="prevodovka" value="<?php echo $inzerat['prevodovka']; ?>"><br>
+        <input type="text" id="prevodovka" name="prevodovka" value="<?php echo $inzerat['prevodovka']; ?>" required><br>
 
         <label for="najeto">Najeto:</label>
-        <input id="najeto" name="najeto" value="<?php echo $inzerat['najezd']; ?>"><br>
+        <input type="number" id="najeto" name="najeto" value="<?php echo $inzerat['najezd']; ?>" required min="0"><br>
 
         <label for="popis">Popis:</label>
-        <textarea rows="5" id="popis" name="popis"><?php echo $inzerat['popis']; ?></textarea><br>
+        <textarea rows="5" id="popis" name="popis" required><?php echo $inzerat['popis']; ?></textarea><br>
 
         <button name="upravit" type="submit" id="upravitBut">Upravit</button>
     </form>

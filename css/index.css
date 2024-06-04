@@ -62,4 +62,70 @@
 .inzerat img {
     max-width: 100%;
 }
-    
+ 
+#alertRegistration {
+    padding: 20px;
+    background-color: lime;
+    color: black;
+    display: none;
+    font-size: 18px;
+    animation: animace 10s ease-in-out forwards;
+}
+
+#alertAdd {
+    padding: 20px;
+    background-color: lime;
+    color: black;
+    display: none;
+    font-size: 18px;
+    animation: animace 10s ease-in-out forwards;
+}
+
+#alertEdit {
+    padding: 20px;
+    background-color: lime;
+    color: black;
+    display: none;
+    font-size: 18px;
+    animation: animace 10s ease-in-out forwards;
+}
+
+#alertLogout {
+    padding: 20px;
+    background-color: lime;
+    color: black;
+    display: none;
+    font-size: 18px;
+    animation: animace 10s ease-in-out forwards;
+}
+
+#alertDelete {
+    padding: 20px;
+    background-color: lime;
+    color: black;
+    display: none;
+    font-size: 18px;
+    animation: animace 10s ease-in-out forwards;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover {
+    color: gray;
+}
+ 
+@keyframes animace {
+    0% { opacity: 1; }
+    25% { opacity: 1; }
+    75% { opacity: 0.75; }
+    100% { opacity: 0.5; }
+}
