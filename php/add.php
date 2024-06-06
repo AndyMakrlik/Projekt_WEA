@@ -17,6 +17,33 @@
             header("location: index.php");
             die();
         }
+
+        if(isset($_POST["pridat"])){
+            require_once "db.php";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $nazev = $_POST["nazev"];
+                $obrazek = $_POST["obrazek"];
+                $cena = $_POST["cena"];
+                $znacka = $_POST["znacka"];
+                $model = $_POST["model"];
+                $rok = $_POST["rok"];
+                $motor = $_POST["motor"];
+                $palivo = $_POST["palivo"];
+                $prevodovka = $_POST["prevodovka"];
+                $najeto = $_POST["najeto"];
+                $popis = $_POST["popis"];
+                $fk_uzivatele = $_SESSION["id_uzivatele"];
+
+                $sql = "INSERT INTO autobazar_inzeraty (nazev, obrazek, cena, znacka, model, rok, motor, palivo, prevodovka, najezd, popis, fk_uzivatel) VALUES ('$nazev', '$obrazek', '$cena', '$znacka', '$model', '$rok', '$motor', '$palivo', '$prevodovka', '$najeto', '$popis', '$fk_uzivatele')";
+                $con->query($sql);
+                $con->close();
+                $_SESSION["add"] = true;
+            }
+
+            header("location: index.php");
+            die();
+        }
     ?>
 
     <h1>Přidat inzerát auta</h1>
@@ -56,34 +83,5 @@
 
         <button id="pridatInzerat" name="pridat" type="submit" id="pridatBut">Přidat inzerát</button>
     </form>
-
-    <?php
-        if(isset($_POST["pridat"])){
-            require_once "db.php";
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $nazev = $_POST["nazev"];
-                $obrazek = $_POST["obrazek"];
-                $cena = preg_replace('/[^0-9]/', '', $_POST["cena"]);
-                $znacka = $_POST["znacka"];
-                $model = $_POST["model"];
-                $rok = preg_replace('/[^0-9]/', '', $_POST["rok"]);
-                $motor = $_POST["motor"];
-                $palivo = $_POST["palivo"];
-                $prevodovka = $_POST["prevodovka"];
-                $najeto = preg_replace('/[^0-9]/', '', $_POST["najeto"]);
-                $popis = $_POST["popis"];
-                $fk_uzivatele = $_SESSION["id_uzivatele"];
-
-                $sql = "INSERT INTO autobazar_inzeraty (nazev, obrazek, cena, znacka, model, rok, motor, palivo, prevodovka, najezd, popis, fk_uzivatel) VALUES ('$nazev', '$obrazek', '$cena', '$znacka', '$model', '$rok', '$motor', '$palivo', '$prevodovka', '$najeto', '$popis', '$fk_uzivatele')";
-                $con->query($sql);
-                $con->close();
-                $_SESSION["add"] = true;
-            }
-
-            header("location: index.php");
-            die();
-        }
-    ?>
 </body>
 </html>

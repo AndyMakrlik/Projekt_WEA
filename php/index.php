@@ -74,7 +74,7 @@
 
     <div class="w3-display-container" style="height: 100px">
         <div class="w3-display-middle">
-            <h1 id="nazev">Vítáme tě na aukčním webu AutoBuznoš</h1>
+            <h1 id="nazev">Vítáme tě na autobazaru ProfiAuto</h1>
         </div>
     </div> 
     

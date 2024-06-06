@@ -81,7 +81,7 @@
 
     <div class="w3-container w3-padding-32 section" id="additional-info">
         <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Další informace</h2>
-        <p>Naše společnost se zaměřuje na poskytování prvotřídních služeb a produktů, které splňují potřeby našich zákazníků. Pokud máte jakékoli dotazy, neváhejte nás kontaktovat prostřednictvím našich poboček nebo telefonicky.</p>
+        <p>Naše společnost se zaměřuje na poskytování prvotřídních služeb a produktů, které splňují potřeby našich zákazníků. Pokud máte jakékoli dotazy, neváhejte nás kontaktovat prostřednictvím našich poboček nebo <a style="color: blue;" href="contact.php">telefonicky.</a></p>
     </div>
 
     <script>
@@ -119,6 +119,5 @@
             }
         }
     </script>
-
 </body>
 </html>
