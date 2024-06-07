@@ -105,7 +105,7 @@
                         <p><strong>Popis:</strong> ' . $inzerat["popis"] . '</p>
                 ';
                 if(isset($_SESSION["jePrihlasen"]) && $_SESSION["jePrihlasen"] == true && isset($_SESSION["id_uzivatele"]) && $_SESSION["id_uzivatele"] == $inzerat["fk_uzivatel"]) {
-                    echo '<form action="delete.php" method="GET"><button type="submit" class="odstranit">❌</button><input type="hidden" name="id" value="' . $inzerat["id"] . '"></form>';
+                    echo '<form action="delete.php" method="GET"><button type="submit" class="odstranit">❌</button><input type="hidden" name="id" value="' . $inzerat["id"] . '"><input type="hidden" name="fk" value="' . $inzerat["fk_uzivatel"] . '"></form>';
                     echo '<form action="edit.php" method="GET"><button type="submit" class="upravit"><input type="hidden" name="id" value="' . $inzerat["id"] . '"></button></form>';
                 }
                     echo '</div>';
